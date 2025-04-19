@@ -65,7 +65,7 @@ const AllCoursesPage = () => {
   };
 
   return (
-    <div className="max-w-screen-xl mx-auto mt-8 mb-8 px-2 sm:px-8 lg:px-16">
+    <div className="max-w-screen-xl mx-auto mt-8 mb-8 px-2 sm:px-8 lg:px-16" id="courses">
       <div className="flex bg-white rounded-lg shadow border">
         {/* Main Content - Course Cards */}
         <div className="flex-1 py-3 px-2 sm:p-6">

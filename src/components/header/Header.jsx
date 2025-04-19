@@ -54,7 +54,7 @@ const Header = () => {
         {/* Right Side Buttons */}
         <div className="hidden sm:flex items-center space-x-4">
           <Link
-            href="/button1"
+            href="#courses"
             className="py-2 px-4 text-black bg-transparent rounded-md  border-2 flex items-center gap-2 hover:bg-black hover:text-white transition duration-200"
           >
             <FaGoogleScholar />

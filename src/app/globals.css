@@ -5,6 +5,9 @@
 :root {
   --main-color: #312783;;
 }
+html{
+  scroll-behavior: smooth;
+}
 
 .fill-warning {
   fill: #f7c32e !important;
