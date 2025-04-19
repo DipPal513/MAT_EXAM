@@ -144,14 +144,14 @@ const AllCoursesPage = () => {
             <h3 className="text-lg font-semibold mb-4">Enroll in {selectedCourse?.title}</h3>
             <Select onValueChange={(value) => setSelectedOption(value)}>
       <SelectTrigger className="w-full">
-        <SelectValue placeholder="Select a duration" />
+        <SelectValue placeholder="Select a Package" />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <SelectLabel>Fruits</SelectLabel>
-          <SelectItem value="3 months">3 Months</SelectItem>
-          <SelectItem value="6 months">6 Months</SelectItem>
-          <SelectItem value="1 year">1 year</SelectItem>
+          <SelectLabel>Select One</SelectLabel>
+          <SelectItem value="3 months">3 Months - 300TK</SelectItem>
+          <SelectItem value="6 months">6 Months - 500TK</SelectItem>
+          <SelectItem value="1 year">1 year - 800TK</SelectItem>
           
         </SelectGroup>
       </SelectContent>

@@ -7,9 +7,9 @@ export default function Home() {
   return (
     <>
     <Banner />
-    <InfoPage />
     <AllCoursesPage />
     <Why_choose />
+    <InfoPage />
     </>
   );
 }

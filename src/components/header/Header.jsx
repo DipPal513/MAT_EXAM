@@ -40,10 +40,10 @@ const Header = () => {
               <Link href={"/"} className="hover:text-[#048A8F] transition duration-200">Home</Link>
             </li>
             <li>
-              <Link href={"/"} className="hover:text-[#048A8F] transition duration-200">Contact</Link>
+              <Link href={"/"} className="hover:text-[#048A8F] transition duration-200">blog</Link>
             </li>
             <li>
-              <Link href={"/"} className="hover:text-[#048A8F] transition duration-200">Blog</Link>
+              <Link href={"/faq"} className="hover:text-[#048A8F] transition duration-200">FAQ</Link>
             </li>
             <li>
               <Link href={"/"} className="hover:text-[#048A8F] transition duration-200">Gallery</Link>

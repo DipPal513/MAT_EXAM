@@ -42,13 +42,7 @@ export default function FAQSection() {
     return (
         <div className="max-w-3xl mx-auto p-6 bg-white rounded-xl shadow-sm">
             <div className="flex justify-center mb-6">
-                <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%20%28182%29-uEzt0Tw2kBRXcS7xUFIh3bMdlXOjzl.png"
-                    alt="Medical education illustration"
-                    width={150}
-                    height={150}
-                    className="mb-2"
-                />
+                
             </div>
 
             <h2 className="text-2xl font-bold text-center mb-8">FAQ</h2>
