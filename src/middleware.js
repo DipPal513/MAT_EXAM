@@ -8,8 +8,14 @@ export function middleware(request) {
   if (pathname.match(/\.(png|jpg|jpeg|gif|webp|svg|ico|css|js|woff2|woff|ttf|otf|mp4|webm)$/)) {
     return NextResponse.next();
   }
-  // Allow public access to "/", "/courses", "/courses/:id", and "/register"
-  if (pathname === "/" || pathname === "/courses" || pathname === "/register" || /^\/courses\/\d+$/.test(pathname)) {
+  // Allow public access to "/", "/courses", "/courses/:id", "/register", and "/faq"
+  if (
+    pathname === "/" ||
+    pathname === "/courses" ||
+    pathname === "/register" ||
+    pathname === "/faq" ||
+    /^\/courses\/\d+$/.test(pathname)
+  ) {
     return NextResponse.next();
   }
 
@@ -18,8 +24,8 @@ export function middleware(request) {
     return NextResponse.redirect(new URL("/", request.url));
   }
 
-  // If no auth token is found, restrict access to other routes except "/login" and "/register"
-  if (!authToken && pathname !== "/login" && pathname !== "/register") {
+  // If no auth token is found, restrict access to other routes except "/login", "/register", and "/faq"
+  if (!authToken && pathname !== "/login" && pathname !== "/register" && pathname !== "/faq") {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
@@ -32,6 +38,6 @@ export const config = {
     "/((?!_next|static|favicon.ico|public).*)", // Match all routes except _next, static, favicon.ico, and public
     "/login",
     "/register",
-    "/faq"
+    "/faq",
   ],
 };
