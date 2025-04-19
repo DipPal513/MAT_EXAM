@@ -32,5 +32,6 @@ export const config = {
     "/((?!_next|static|favicon.ico|public).*)", // Match all routes except _next, static, favicon.ico, and public
     "/login",
     "/register",
+    "/faq"
   ],
 };

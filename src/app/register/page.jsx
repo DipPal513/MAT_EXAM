@@ -114,39 +114,9 @@ const SignUpPage = () => {
             )}
           </div>
 
-          <div className="mb-4">
-            <label
-              htmlFor="customInstitutionName"
-              className="block text-lg text-gray-600 mb-2"
-            >
-              Institution Name
-            </label>
-            <input
-              type="text"
-              id="customInstitutionName"
-              placeholder="Enter your institution name"
-              className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-main"
-              {...register("custom_institution_name", { required: true })}
-            />
-            {errors.customInstitutionName && (
-              <span className="text-red-500">Institution Name is required</span>
-            )}
-          </div>
+      
 
-          <div className="mb-4">
-            <label
-              htmlFor="additionalInfo"
-              className="block text-lg text-gray-600 mb-2"
-            >
-              Additional Info
-            </label>
-            <textarea
-              id="additionalInfo"
-              placeholder="Enter any additional information"
-              className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-main"
-              {...register("additional_info")}
-            />
-          </div>
+          
 
           <div className="mb-4 relative">
             <label
