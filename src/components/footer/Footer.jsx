@@ -1,75 +1,110 @@
-import Link from "next/link";
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+"use client"
 
-const Footer = () => {
+import { Facebook, Twitter, Youtube, Mail } from "lucide-react"
+import Link from "next/link"
+
+export default function Footer() {
   return (
-    <footer className="bg-gray-800 text-white py-8 px-4 sm:px-8 lg:px-16">
-      <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-        
-        {/* Company Info */}
-        <div>
-          <h2 className="text-xl font-bold mb-4">Company</h2>
-          <p className="text-gray-400">
-            We are dedicated to delivering the best services to our clients. Follow us on social media to stay updated.
-          </p>
-          <div className="flex space-x-4 mt-4">
-            <Link href="https://facebook.com" className="hover:text-blue-500">
-              <FaFacebook size={20} />
-            </Link>
-            <Link href="https://twitter.com" className="hover:text-blue-400">
-              <FaTwitter size={20} />
-            </Link>
-            <Link href="https://instagram.com" className="hover:text-pink-500">
-              <FaInstagram size={20} />
-            </Link>
-            <Link href="https://linkedin.com" className="hover:text-blue-600">
-              <FaLinkedin size={20} />
-            </Link>
+    <footer className="bg-[#001337] text-white">
+      <div className="container mx-auto px-6 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* About Column */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6 border-b border-blue-500 pb-2 inline-block">About Medexampass</h3>
+            <p className="text-sm text-gray-300 mt-4">
+              Med Exam Pass is an online platform specifically designed to enhance the revision & exam preparation
+              processes of medical students and graduate physicians worldwide.
+            </p>
+
+            <div className="mt-8">
+              <h4 className="text-sm font-semibold mb-4">FOLLOW US ON:</h4>
+              <div className="flex space-x-3">
+                <Link href="#" className="bg-gray-700 p-2 rounded-full hover:bg-gray-600 transition">
+                  <Facebook size={16} />
+                </Link>
+                <Link href="#" className="bg-gray-700 p-2 rounded-full hover:bg-gray-600 transition">
+                  <Twitter size={16} />
+                </Link>
+                <Link href="#" className="bg-gray-700 p-2 rounded-full hover:bg-gray-600 transition">
+                  <Youtube size={16} />
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Links Column */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6 border-b border-blue-500 pb-2 inline-block">Quick Links</h3>
+            <ul className="space-y-3 text-sm text-gray-300">
+              <li className="flex items-start">
+                <span className="mr-2 mt-1">•</span>
+                <Link href="#" className="hover:text-blue-400 transition">
+                  Contact Us
+                </Link>
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2 mt-1">•</span>
+                <Link href="#" className="hover:text-blue-400 transition">
+                  Terms & Condition
+                </Link>
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2 mt-1">•</span>
+                <Link href="#" className="hover:text-blue-400 transition">
+                  FAQs
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Resources Column */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6 border-b border-blue-500 pb-2 inline-block">Resources</h3>
+            <ul className="space-y-3 text-sm text-gray-300">
+              <li className="flex items-start">
+                <span className="mr-2 mt-1">•</span>
+                <Link href="#" className="hover:text-blue-400 transition">
+                  Exam Information
+                </Link>
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2 mt-1">•</span>
+                <Link href="#" className="hover:text-blue-400 transition">
+                  Courses
+                </Link>
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2 mt-1">•</span>
+                <Link href="#" className="hover:text-blue-400 transition">
+                  Demo
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Get in touch Column */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6 border-b border-blue-500 pb-2 inline-block">Get in touch!</h3>
+            <div className="flex items-center text-sm text-gray-300 mt-4">
+              <Mail size={16} className="text-blue-400 mr-2" />
+              <a href="mailto:medexampass@gmail.com" className="hover:text-blue-400 transition">
+                medexampass@gmail.com
+              </a>
+            </div>
           </div>
         </div>
-
-        {/* Quick Links */}
-        <div>
-          <h2 className="text-xl font-bold mb-4">Quick Links</h2>
-          <ul className="space-y-2">
-            <li>
-              <Link href="/about" className="hover:text-gray-300">
-                About Us
-              </Link>
-            </li>
-            <li>
-              <Link href="/services" className="hover:text-gray-300">
-                Services
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="hover:text-gray-300">
-                Contact
-              </Link>
-            </li>
-            <li>
-              <Link href="/blog" className="hover:text-gray-300">
-                Blog
-              </Link>
-            </li>
-          </ul>
-        </div>
-
-        {/* Contact Info */}
-        <div>
-          <h2 className="text-xl font-bold mb-4">Contact Us</h2>
-          <p className="text-gray-400">1234 Street Name, City, State, 56789</p>
-          <p className="text-gray-400 mt-2">Phone: (123) 456-7890</p>
-          <p className="text-gray-400 mt-2">Email: info@company.com</p>
-        </div>
       </div>
 
-      {/* Copyright */}
-      <div className="mt-8 border-t border-gray-700 pt-4 text-center text-gray-500 text-sm">
-        &copy; {new Date().getFullYear()} Company Name. All rights reserved.
+      {/* Copyright Section */}
+      <div className="bg-[#001337] border-t border-gray-800 py-4">
+        <div className="container mx-auto px-6 text-center text-xs text-gray-400">
+          Copyright © 2023{" "}
+          <Link href="#" className="text-blue-400 hover:underline">
+            Medexampass
+          </Link>
+          . All Rights Reserved.
+        </div>
       </div>
     </footer>
-  );
-};
-
-export default Footer;
+  )
+}

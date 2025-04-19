@@ -6,12 +6,25 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { base_url } from "@/utils/URL";
+import toast from "react-hot-toast";
 
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 const AllCoursesPage = () => {
   const router = useRouter();
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState(null);
+  const [selectedOption, setSelectedOption] = useState("");
 
   const fetchData = async () => {
     setLoading(true);
@@ -39,6 +52,17 @@ const AllCoursesPage = () => {
   useEffect(() => {
     fetchData();
   }, []);
+
+  const handleEnrollClick = (course) => {
+    setSelectedCourse(course);
+    setIsModalOpen(true);
+  };
+
+  const handleModalSubmit = () => {
+    toast.success(`You selected: ${selectedOption} for course: ${selectedCourse?.title}`);
+    setIsModalOpen(false);
+    setSelectedOption("");
+  };
 
   return (
     <div className="max-w-screen-xl mx-auto mt-8 mb-8 px-2 sm:px-8 lg:px-16">
@@ -75,7 +99,6 @@ const AllCoursesPage = () => {
                 <div
                   key={course.id}
                   className="cursor-pointer bg-white rounded-md shadow border p-4 hover:shadow-lg transition-shadow"
-                  onClick={() => router.push(`/courses/${course.id}`)}
                 >
                   <img
                     src={course.photo}
@@ -100,12 +123,12 @@ const AllCoursesPage = () => {
                         399
                       </p>
                     </div>
-                    <Link
-                      href={`/courses/${course.id}`}
+                    <button
                       className="inline-block w-full text-center py-2 rounded-md bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow hover:from-indigo-600 hover:to-purple-600 transition-colors"
+                      onClick={() => handleEnrollClick(course)}
                     >
-                      View Details
-                    </Link>
+                      Enroll Now
+                    </button>
                   </div>
                 </div>
               ))}
@@ -113,6 +136,44 @@ const AllCoursesPage = () => {
           )}
         </div>
       </div>
+
+      {/* Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white rounded-lg shadow-lg p-6 w-96">
+            <h3 className="text-lg font-semibold mb-4">Enroll in {selectedCourse?.title}</h3>
+            <Select onValueChange={(value) => setSelectedOption(value)}>
+      <SelectTrigger className="w-full">
+        <SelectValue placeholder="Select a duration" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectGroup>
+          <SelectLabel>Fruits</SelectLabel>
+          <SelectItem value="3 months">3 Months</SelectItem>
+          <SelectItem value="6 months">6 Months</SelectItem>
+          <SelectItem value="1 year">1 year</SelectItem>
+          
+        </SelectGroup>
+      </SelectContent>
+    </Select>
+            <div className="flex justify-end mt-5">
+              <button
+                className="mr-2 px-4 py-2 bg-gray-300 rounded-md hover:bg-gray-400"
+                onClick={() => setIsModalOpen(false)}
+              >
+                Cancel
+              </button>
+              <button
+                className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-indigo-600"
+                onClick={handleModalSubmit}
+                disabled={!selectedOption}
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
